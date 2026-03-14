@@ -1,20 +1,27 @@
-import type { MetricEntry } from "./types";
-
 /**
- * In-memory metrics collector with rolling window.
+ * ShieldMetrics — In-memory metrics collector with rolling window.
  * Keeps the last 10,000 entries for real-time dashboard and status queries.
+ *
+ * Powered by Kairos Lab
  */
 export class ShieldMetrics {
-  private entries: MetricEntry[] = [];
-  private maxEntries = 10_000;
-  private counters = {
-    totalRequests: 0,
-    totalBlocked: 0,
-    totalAllowed: 0,
-    blockedByLayer: {} as Record<string, number>,
-  };
+  constructor() {
+    /** @type {Array<Object>} */
+    this.entries = [];
+    this.maxEntries = 10_000;
+    this.counters = {
+      totalRequests: 0,
+      totalBlocked: 0,
+      totalAllowed: 0,
+      blockedByLayer: {},
+    };
+  }
 
-  record(entry: MetricEntry): void {
+  /**
+   * Record a metric entry.
+   * @param {Object} entry
+   */
+  record(entry) {
     this.entries.push(entry);
     if (this.entries.length > this.maxEntries) {
       this.entries.shift();
@@ -32,6 +39,10 @@ export class ShieldMetrics {
     }
   }
 
+  /**
+   * Get a snapshot of current metrics across multiple time windows.
+   * @returns {Object}
+   */
   getSnapshot() {
     const now = Date.now();
     const last60s = this.entries.filter((e) => e.timestamp > now - 60_000);
@@ -53,13 +64,16 @@ export class ShieldMetrics {
         total: last5m.length,
         blocked: last5m.filter((e) => !e.allowed).length,
         allowed: last5m.filter((e) => e.allowed).length,
-        topBlockedEndpoints: this.getTopBlocked(last5m, 5),
-        topClients: this.getTopClients(last5m, 5),
+        topBlockedEndpoints: this._getTopBlocked(last5m, 5),
+        topClients: this._getTopClients(last5m, 5),
       },
     };
   }
 
-  clear(): void {
+  /**
+   * Clear all metrics.
+   */
+  clear() {
     this.entries = [];
     this.counters = {
       totalRequests: 0,
@@ -69,12 +83,10 @@ export class ShieldMetrics {
     };
   }
 
-  private getTopBlocked(
-    entries: MetricEntry[],
-    limit: number
-  ): Array<{ endpoint: string; count: number }> {
+  /** @private */
+  _getTopBlocked(entries, limit) {
     const blocked = entries.filter((e) => !e.allowed);
-    const counts = new Map<string, number>();
+    const counts = new Map();
     for (const e of blocked) {
       counts.set(e.endpoint, (counts.get(e.endpoint) ?? 0) + 1);
     }
@@ -84,14 +96,9 @@ export class ShieldMetrics {
       .map(([endpoint, count]) => ({ endpoint, count }));
   }
 
-  private getTopClients(
-    entries: MetricEntry[],
-    limit: number
-  ): Array<{ clientId: string; total: number; blocked: number }> {
-    const clients = new Map<
-      string,
-      { total: number; blocked: number }
-    >();
+  /** @private */
+  _getTopClients(entries, limit) {
+    const clients = new Map();
     for (const e of entries) {
       const c = clients.get(e.clientId) ?? { total: 0, blocked: 0 };
       c.total++;

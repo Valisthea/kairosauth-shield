@@ -1,45 +1,35 @@
 {
   "name": "@kairosauth/shield",
   "version": "1.0.0",
-  "description": "Enterprise-grade API protection layer — rate limiting, circuit breaking, anomaly detection, and on-chain audit trails powered by Kairos Lab cryptographic infrastructure.",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "description": "API protection SDK — intelligent rate limiting, circuit breaking, anomaly detection, and on-chain audit trails for mission-critical APIs. Powered by Kairos Lab.",
+  "type": "module",
+  "main": "src/index.js",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./adapters/asterdex": {
-      "types": "./dist/adapters/asterdex.d.ts",
-      "import": "./dist/adapters/asterdex.mjs",
-      "require": "./dist/adapters/asterdex.js"
-    }
+    ".": "./src/index.js",
+    "./adapters/asterdex-v3": "./src/adapters/asterdex-v3.js"
   },
   "files": [
-    "dist",
+    "src",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "node --test test/**/*.test.js",
     "lint": "eslint src/",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "example:basic": "node examples/asterdex-v3-basic.js",
+    "example:advanced": "node examples/asterdex-v3-advanced.js"
   },
   "keywords": [
-    "api-security",
+    "api-protection",
     "rate-limiting",
     "circuit-breaker",
     "anomaly-detection",
-    "on-chain-audit",
+    "audit-trail",
+    "asterdex",
+    "eip-712",
     "kairosauth",
-    "api-protection",
     "shield",
+    "security",
     "middleware",
     "zero-trust"
   ],
@@ -47,21 +37,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Valisthea/kairosauth-shield"
+    "url": "https://github.com/kairoslab/kairosauth-shield"
   },
   "homepage": "https://kairosauth.io",
   "bugs": {
-    "url": "https://github.com/Valisthea/kairosauth-shield/issues"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.0",
-    "eslint": "^8.56.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "vitest": "^1.2.0"
+    "url": "https://github.com/kairoslab/kairosauth-shield/issues"
   },
   "peerDependencies": {
-    "ethers": ">=5.7.0 || >=6.0.0"
+    "ethers": ">=6.0.0"
   },
   "peerDependenciesMeta": {
     "ethers": {
