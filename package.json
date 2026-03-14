@@ -1,0 +1,74 @@
+{
+  "name": "@kairosauth/shield",
+  "version": "1.0.0",
+  "description": "Enterprise-grade API protection layer — rate limiting, circuit breaking, anomaly detection, and on-chain audit trails powered by KairosAuth cryptographic infrastructure.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./adapters/asterdex": {
+      "types": "./dist/adapters/asterdex.d.ts",
+      "import": "./dist/adapters/asterdex.mjs",
+      "require": "./dist/adapters/asterdex.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "api-security",
+    "rate-limiting",
+    "circuit-breaker",
+    "anomaly-detection",
+    "on-chain-audit",
+    "kairosauth",
+    "api-protection",
+    "shield",
+    "middleware",
+    "zero-trust"
+  ],
+  "author": "KairosAuth <contact@kairosauth.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Valisthea/kairosauth-shield"
+  },
+  "homepage": "https://kairosauth.io",
+  "bugs": {
+    "url": "https://github.com/Valisthea/kairosauth-shield/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "eslint": "^8.56.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "peerDependencies": {
+    "ethers": ">=5.7.0 || >=6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ethers": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
