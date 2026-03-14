@@ -1,8 +1,8 @@
 # @kairosauth/shield
 
-**Enterprise-grade API protection powered by KairosAuth cryptographic infrastructure.**
+**Enterprise-grade API protection powered by Kairos Lab cryptographic infrastructure.**
 
-Shield wraps your API calls in 4 intelligent protection layers — rate limiting, circuit breaking, anomaly detection, and immutable on-chain audit trails. Built by the team behind [KairosAuth](https://kairosauth.io), the passwordless identity protocol with on-chain proof anchoring.
+Shield wraps your API calls in 4 intelligent protection layers — rate limiting, circuit breaking, anomaly detection, and immutable on-chain audit trails. Built by the team behind [Kairos Lab](https://kairosauth.io), the passwordless identity protocol with on-chain proof anchoring.
 
 ---
 
@@ -12,14 +12,14 @@ Most APIs ship with basic rate limiting and call it security. That's not enough.
 
 Your API key is a **single point of failure**. If it leaks, gets scraped, or is brute-forced, basic rate limiting won't stop a sophisticated attacker from draining your account, executing unauthorized trades, or accessing sensitive data.
 
-**Shield adds defense-in-depth to any API** — the same multi-layer philosophy we use to protect identity at KairosAuth, now available for your API integrations.
+**Shield adds defense-in-depth to any API** — the same multi-layer philosophy we use to protect identity at Kairos Lab, now available for your API integrations.
 
 | Layer | What it does | Why it matters |
 |-------|-------------|----------------|
 | **Rate Shield** | Intelligent rate limiting with per-endpoint granularity | Prevents abuse before you hit the API's own limits (and get banned) |
 | **Circuit Breaker** | Automatic failure detection with OPEN/HALF_OPEN/CLOSED states | Stops cascading failures — your app fails fast instead of hanging |
 | **Anomaly Detector** | Pattern analysis: payload spikes, endpoint scanning, burst detection | Catches reconnaissance and credential stuffing in real-time |
-| **On-Chain Audit** | Merkle-tree anchored audit trail via KairosAuth infrastructure | Immutable proof of every security event — tamper-proof compliance |
+| **On-Chain Audit** | Merkle-tree anchored audit trail via Kairos Lab infrastructure | Immutable proof of every security event — tamper-proof compliance |
 
 ---
 
@@ -190,7 +190,7 @@ const shield = new Shield({
 
 ### On-Chain Audit
 
-Every security event gets anchored to the blockchain via KairosAuth's Merkle infrastructure:
+Every security event gets anchored to the blockchain via Kairos Lab's Merkle infrastructure:
 
 ```ts
 const shield = new Shield({
@@ -292,7 +292,7 @@ process.on("SIGTERM", async () => {
 
 ## Architecture
 
-Shield follows **KairosAuth's zero-trust philosophy**: every layer is independent and fail-safe. If a layer throws an error, it defaults to **allow** — Shield never blocks legitimate traffic due to internal failures.
+Shield follows **Kairos Lab's zero-trust philosophy**: every layer is independent and fail-safe. If a layer throws an error, it defaults to **allow** — Shield never blocks legitimate traffic due to internal failures.
 
 ```
 Request → Rate Shield → Circuit Breaker → Anomaly Detector → ✅ ALLOWED
@@ -308,7 +308,7 @@ Evaluation stops at the first blocking layer (fail-fast) to minimize overhead.
 
 ## Links
 
-- **KairosAuth** — [kairosauth.io](https://kairosauth.io)
+- **Kairos Lab** — [kairosauth.io](https://kairosauth.io)
 - **Documentation** — [kairosauth.io/docs](https://kairosauth.io/docs)
 - **Shield Protocol Status** — [kairosauth.io/proof](https://kairosauth.io/proof)
 - **GitHub** — [github.com/Valisthea/kairosauth-shield](https://github.com/Valisthea/kairosauth-shield)
@@ -317,4 +317,4 @@ Evaluation stops at the first blocking layer (fail-fast) to minimize overhead.
 
 ## License
 
-MIT — [KairosAuth](https://kairosauth.io)
+MIT — [Kairos Lab](https://kairosauth.io)

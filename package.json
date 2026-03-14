@@ -1,7 +1,7 @@
 {
   "name": "@kairosauth/shield",
   "version": "1.0.0",
-  "description": "Enterprise-grade API protection layer — rate limiting, circuit breaking, anomaly detection, and on-chain audit trails powered by KairosAuth cryptographic infrastructure.",
+  "description": "Enterprise-grade API protection layer — rate limiting, circuit breaking, anomaly detection, and on-chain audit trails powered by Kairos Lab cryptographic infrastructure.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -43,7 +43,7 @@
     "middleware",
     "zero-trust"
   ],
-  "author": "KairosAuth <contact@kairosauth.io>",
+  "author": "Kairos Lab <contact@kairosauth.io>",
   "license": "MIT",
   "repository": {
     "type": "git",

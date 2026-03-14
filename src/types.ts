@@ -148,10 +148,10 @@ export interface AnomalyDetectorConfig {
 // ─── On-Chain Audit ────────────────────────────────────────────
 
 export interface OnChainAuditConfig {
-  /** KairosAuth API endpoint for anchoring proofs. */
+  /** Kairos Lab API endpoint for anchoring proofs. */
   apiEndpoint: string;
 
-  /** KairosAuth API key. */
+  /** Kairos Lab API key. */
   apiKey: string;
 
   /** Batch size — anchor after N events. Default: 100. */

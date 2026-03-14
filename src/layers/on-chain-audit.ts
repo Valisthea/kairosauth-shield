@@ -2,7 +2,7 @@ import type { OnChainAuditConfig, MetricEntry } from "../types";
 
 /**
  * On-Chain Audit — Anchors API security events to the blockchain
- * via KairosAuth's Merkle tree infrastructure.
+ * via Kairos Lab's Merkle tree infrastructure.
  *
  * Events are batched and periodically flushed to minimize on-chain costs.
  * Each batch produces a Merkle root that is anchored on-chain, providing
@@ -68,7 +68,7 @@ export class OnChainAudit {
       const leaves = events.map((e) => this.hashEvent(e));
       const merkleRoot = this.computeMerkleRoot(leaves);
 
-      // Anchor to KairosAuth
+      // Anchor to Kairos Lab
       const response = await fetch(
         `${this.config.apiEndpoint}/v1/shield/anchor`,
         {

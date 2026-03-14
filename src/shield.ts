@@ -18,7 +18,7 @@ function generateRequestId(): string {
 }
 
 /**
- * KairosAuth Shield — Multi-layer API protection.
+ * Kairos Lab Shield — Multi-layer API protection.
  *
  * @example
  * ```ts
@@ -68,7 +68,7 @@ export class Shield {
 
     if (config.verbose) {
       console.log(
-        `[KairosAuth Shield] Initialized with layers: ${this.getActiveLayerNames().join(", ") || "none"}`
+        `[Kairos Lab Shield] Initialized with layers: ${this.getActiveLayerNames().join(", ") || "none"}`
       );
     }
   }
