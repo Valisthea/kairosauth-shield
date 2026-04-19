@@ -1,5 +1,9 @@
 # @kairosauth/api-guard
 
+> **⚠️ This repository has been consolidated.**
+> Development continues at [kairos-authentification-protocol](https://github.com/Valisthea/kairos-authentification-protocol) under `packages/api-guard/`.
+> This repo is kept for historical reference only.
+
 [![npm version](https://img.shields.io/npm/v/@kairosauth/api-guard)](https://www.npmjs.com/package/@kairosauth/api-guard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
