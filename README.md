@@ -1,6 +1,6 @@
-# @kairosauth/shield
+# @kairosauth/api-guard
 
-[![npm version](https://img.shields.io/npm/v/@kairosauth/shield)](https://www.npmjs.com/package/@kairosauth/shield)
+[![npm version](https://img.shields.io/npm/v/@kairosauth/api-guard)](https://www.npmjs.com/package/@kairosauth/api-guard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **Multi-layer API protection for mission-critical applications.**
@@ -31,13 +31,13 @@ Your API key is a **single point of failure**. If it leaks, gets scraped, or is 
 ### 1. Install
 
 ```bash
-npm install @kairosauth/shield
+npm install @kairosauth/api-guard
 ```
 
 ### 2. Configure
 
 ```js
-import { Shield } from '@kairosauth/shield';
+import { Shield } from '@kairosauth/api-guard';
 
 const shield = new Shield({
   rateShield: {
@@ -137,7 +137,7 @@ Evaluation stops at the first blocking layer (fail-fast) to minimize overhead.
 Shield ships with a **pre-configured adapter for AsterDex V3** — tuned for the specific rate limits, endpoint patterns, and failure modes of the AsterDex trading API.
 
 ```js
-import { createAsterDexV3Shield } from '@kairosauth/shield/adapters/asterdex-v3';
+import { createAsterDexV3Shield } from '@kairosauth/api-guard/adapters/asterdex-v3';
 
 const shield = createAsterDexV3Shield({ verbose: true });
 
@@ -189,7 +189,7 @@ const response = await safeFetch('https://api.asterdex.io/api/v3/account');
 Built-in helper for AsterDex V3 authentication:
 
 ```js
-import { signAsterDexRequest } from '@kairosauth/shield/adapters/asterdex-v3';
+import { signAsterDexRequest } from '@kairosauth/api-guard/adapters/asterdex-v3';
 
 const { signature, signedParams } = await signAsterDexRequest({
   params: { symbol: 'ETH-USDT', side: 'BUY', quantity: '1.5', price: '3200' },

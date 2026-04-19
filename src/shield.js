@@ -26,7 +26,7 @@ function generateRequestId() {
  *
  * @example
  * ```js
- * import { Shield } from '@kairosauth/shield';
+ * import { Shield } from '@kairosauth/api-guard';
  *
  * const shield = new Shield({
  *   rateShield: { maxRequests: 200, windowMs: 60_000 },

@@ -1,6 +1,6 @@
 {
-  "name": "@kairosauth/shield",
-  "version": "1.0.0",
+  "name": "@kairosauth/api-guard",
+  "version": "1.1.0",
   "description": "API protection SDK — intelligent rate limiting, circuit breaking, anomaly detection, and on-chain audit trails for mission-critical APIs. Powered by Kairos Lab.",
   "type": "module",
   "main": "src/index.js",
@@ -21,6 +21,7 @@
   },
   "keywords": [
     "api-protection",
+    "api-guard",
     "rate-limiting",
     "circuit-breaker",
     "anomaly-detection",
@@ -28,7 +29,6 @@
     "asterdex",
     "eip-712",
     "kairosauth",
-    "shield",
     "security",
     "middleware",
     "zero-trust"
@@ -37,11 +37,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kairoslab/kairosauth-shield"
+    "url": "https://github.com/Valisthea/kairosauth-shield"
   },
   "homepage": "https://kairosauth.io",
   "bugs": {
-    "url": "https://github.com/kairoslab/kairosauth-shield/issues"
+    "url": "https://github.com/Valisthea/kairosauth-shield/issues"
   },
   "peerDependencies": {
     "ethers": ">=6.0.0"

@@ -13,7 +13,7 @@ import { Shield } from '../shield.js';
  *
  * @example
  * ```js
- * import { AsterDexV3Shield, createAsterDexV3Shield } from '@kairosauth/shield/adapters/asterdex-v3';
+ * import { AsterDexV3Shield, createAsterDexV3Shield } from '@kairosauth/api-guard/adapters/asterdex-v3';
  *
  * const shield = createAsterDexV3Shield({ verbose: true });
  *

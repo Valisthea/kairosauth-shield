@@ -1,5 +1,5 @@
 /**
- * @kairosauth/shield — API Protection SDK
+ * @kairosauth/api-guard — API Protection SDK
  * Powered by Kairos Lab
  *
  * Multi-layer API protection: rate limiting, circuit breaking,
